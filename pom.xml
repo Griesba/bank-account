@@ -8,7 +8,7 @@
 		<version>2.3.12.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.kata.</groupId>
+	<groupId>com.kata.banking</groupId>
 	<artifactId>bank-account</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>bank-account</name>
@@ -17,6 +17,7 @@
 		<java.version>11</java.version>
 		<org.mapstruct.version>1.4.2.Final</org.mapstruct.version>
 		<lombock.version>1.18.16</lombock.version>
+		<springfox-version>3.0.0</springfox-version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -58,6 +59,22 @@
 			<groupId>org.mapstruct</groupId>
 			<artifactId>mapstruct</artifactId>
 			<version>${org.mapstruct.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>${springfox-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-boot-starter</artifactId>
+			<version>${springfox-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>${springfox-version}</version>
 		</dependency>
 
 	</dependencies>
