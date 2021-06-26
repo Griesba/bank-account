@@ -19,12 +19,12 @@ public class AccountService {
 
     public AccountDto createAccount(AccountDto accountDto) {
         Account account = new Account();
-        account.setName(accountDto.getName());
+        account.setUserId(accountDto.getUserId());
         account.setBalance(accountDto.getBalance());
         return accountMapper.accountToDto(accountRepository.save(account));
     }
 
     public List<AccountDto> listAccount() {
-        return accountRepository.findAll().stream().map(account -> accountMapper.accountToDto(account)).collect(Collectors.toList());
+        return accountRepository.findAll().stream().map(accountMapper::accountToDto).collect(Collectors.toList());
     }
 }

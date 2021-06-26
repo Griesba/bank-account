@@ -8,6 +8,13 @@
 		<version>2.3.12.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
+
+	<packaging>pom</packaging>
+	<modules>
+		<module>client-service</module>
+		<module>user-ref</module>
+	</modules>
+
 	<groupId>com.kata.banking</groupId>
 	<artifactId>bank-account</artifactId>
 	<version>0.0.1-SNAPSHOT</version>

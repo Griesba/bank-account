@@ -1,6 +1,5 @@
 package com.kata.bankaccount.web;
 
-import com.kata.bankaccount.model.Account;
 import com.kata.bankaccount.services.AccountService;
 import com.kata.bankaccount.web.model.AccountDto;
 import lombok.RequiredArgsConstructor;

@@ -1,12 +1,11 @@
-package com.kata.bankaccount.web.model;
+package com.kata.banking;
 
 import lombok.Data;
 
 import java.util.UUID;
 
 @Data
-public class AccountDto {
+public class User {
     private UUID id;
     private String name;
-    private double balance;
 }

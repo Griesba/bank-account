@@ -25,7 +25,7 @@ public class Account {
     @Type(type="org.hibernate.type.UUIDCharType")
     @Column(length = 36, columnDefinition = "varchar", updatable = false, nullable = false )
     private UUID id;
-    private String name;
+    private UUID userId;
     private double balance;
 
     @CreationTimestamp
