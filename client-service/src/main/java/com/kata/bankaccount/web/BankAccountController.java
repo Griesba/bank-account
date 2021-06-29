@@ -11,9 +11,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.UUID;
 
 @RequestMapping("/api/v1/account")
 @RestController
@@ -50,8 +52,8 @@ public class BankAccountController {
         }
     }
 
-    @GetMapping("/history")
-    public ResponseEntity<List<ClientActionDto>> listAction(){
-        return ResponseEntity.ok(accountService.listActions());
+    @GetMapping("/history{userId}")
+    public ResponseEntity<List<ClientActionDto>> listAction(@RequestParam UUID userId){
+        return ResponseEntity.ok(accountService.listActions(userId));
     }
 }

@@ -1,6 +1,8 @@
 package com.kata.bankaccount.model;
 
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
@@ -14,6 +16,8 @@ import java.util.UUID;
 
 @Data
 @Entity
+@Builder
+@NoArgsConstructor
 public class ClientAction {
     @Id
     @GeneratedValue(generator = "UUID")

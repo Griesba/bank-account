@@ -17,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
@@ -33,7 +34,9 @@ public class AccountServiceImpl implements AccountService{
         Account account = new Account();
         account.setUserId(accountDto.getUserId());
         account.setBalance(accountDto.getBalance());
-        return accountMapper.accountToDto(accountRepository.save(account));
+        AccountDto result = accountMapper.accountToDto(accountRepository.save(account));
+
+        return result;
     }
 
     @Override
@@ -73,8 +76,10 @@ public class AccountServiceImpl implements AccountService{
     }
 
     @Override
-    public List<ClientActionDto> listActions() {
-        return actionHistory.findAll().stream().map(actionMapper::clientActionToDto).collect(Collectors.toList());
+    public List<ClientActionDto> listActions(UUID userId) {
+        return actionHistory.findAllByUserId(userId)
+                .stream().map(actionMapper::clientActionToDto)
+                .collect(Collectors.toList());
 
     }
 }

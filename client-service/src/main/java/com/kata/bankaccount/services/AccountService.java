@@ -6,6 +6,7 @@ import com.kata.bankaccount.web.model.ClientActionDto;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;
+import java.util.UUID;
 
 public interface AccountService {
 
@@ -17,5 +18,5 @@ public interface AccountService {
 
     AccountDto deposit(ClientActionDto bankActionDto) throws BankAccountException;
 
-    List<ClientActionDto> listActions();
+    List<ClientActionDto> listActions(UUID userId);
 }
