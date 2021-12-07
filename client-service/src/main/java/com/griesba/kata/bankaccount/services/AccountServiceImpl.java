@@ -1,6 +1,7 @@
 package com.griesba.kata.bankaccount.services;
 
 import com.griesba.kata.bankaccount.BankAccountException;
+import com.griesba.kata.bankaccount.message.CommandsProcessor;
 import com.griesba.kata.bankaccount.model.Account;
 import com.griesba.kata.bankaccount.repo.AccountRepository;
 import com.griesba.kata.bankaccount.repo.ClientActionHistory;
@@ -27,6 +28,8 @@ public class AccountServiceImpl implements AccountService{
     private final AccountMapper accountMapper;
     private final ClientActionHistory actionHistory;
     private final ClientActionMapper actionMapper;
+
+    private final CommandsProcessor commandProcessor;
 
     @Override
     public AccountDto createAccount(AccountDto accountDto) {
@@ -79,6 +82,10 @@ public class AccountServiceImpl implements AccountService{
         return actionHistory.findAllByUserId(userId)
                 .stream().map(actionMapper::clientActionToDto)
                 .collect(Collectors.toList());
+    }
 
+    @Override
+    public boolean send(AccountDto accountDto) {
+        return false;
     }
 }

@@ -22,16 +22,14 @@ public class User {
     @Type(type = "uuid-char")
     private UUID id;
     private String name;
+    private Role role;
 
     public User() {
     }
 
-    public User(UUID id, String name) {
+    public User(UUID id, String name, Role role) {
         this.id = id;
         this.name = name;
-    }
-
-    public User(String name) {
-        this.name = name;
+        this.role = role;
     }
 }

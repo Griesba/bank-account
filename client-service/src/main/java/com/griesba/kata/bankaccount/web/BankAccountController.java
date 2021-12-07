@@ -1,6 +1,7 @@
 package com.griesba.kata.bankaccount.web;
 
 import com.griesba.kata.bankaccount.BankAccountException;
+import com.griesba.kata.bankaccount.config.PropertiesConfig;
 import com.griesba.kata.bankaccount.services.AccountServiceImpl;
 import com.griesba.kata.bankaccount.web.model.AccountDto;
 import com.griesba.kata.bankaccount.web.model.ClientActionDto;
@@ -23,6 +24,7 @@ import java.util.UUID;
 public class BankAccountController {
 
     private final AccountServiceImpl accountService;
+    private final PropertiesConfig propertiesConfig;
 
     @GetMapping()
     public List<AccountDto> listAccount(){
@@ -30,8 +32,9 @@ public class BankAccountController {
     }
 
     @PostMapping
-    public AccountDto createAccount(@RequestBody AccountDto accountDto){
-        return accountService.createAccount(accountDto);
+    public boolean createAccount(@RequestBody AccountDto accountDto){
+
+        return propertiesConfig.isUseCQRS() ? accountService.send(accountDto) : accountService.createAccount(accountDto) != null ;
     }
 
     @PostMapping("/deposit")

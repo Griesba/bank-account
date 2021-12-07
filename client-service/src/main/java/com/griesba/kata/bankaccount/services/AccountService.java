@@ -18,4 +18,6 @@ public interface AccountService {
     AccountDto deposit(ClientActionDto bankActionDto) throws BankAccountException;
 
     List<ClientActionDto> listActions(UUID userId);
+
+    boolean send(AccountDto accountDto);
 }
