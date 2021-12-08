@@ -1,16 +1,17 @@
 package com.griesba.kata.bankaccount.events;
 
 import javax.persistence.Id;
+import java.util.UUID;
 
 public abstract class Event {
     @Id
-    private final String id;
+    private final UUID id;
 
-    public Event(String id) {
+    public Event(UUID id) {
         this.id = id;
     }
 
-    public String getId() {
+    public UUID getId() {
         return id;
     }
 }
