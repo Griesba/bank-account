@@ -9,8 +9,7 @@ public class BankAccountCreated extends Event{
     private final UUID user;
     private final String iban;
 
-    public BankAccountCreated(UUID id, UUID user, String iban) {
-        super(id);
+    public BankAccountCreated(UUID user, String iban) {
         this.user = user;
         this.iban = iban;
     }

@@ -1,19 +1,18 @@
 package com.griesba.kata.bankaccount.services;
 
 import com.griesba.kata.bankaccount.BankAccountException;
-import com.griesba.kata.bankaccount.message.CommandsProcessor;
+import com.griesba.kata.bankaccount.infrastructure.message.CommandsProcessor;
 import com.griesba.kata.bankaccount.model.Account;
+import com.griesba.kata.bankaccount.model.ClientAction;
 import com.griesba.kata.bankaccount.repo.AccountRepository;
 import com.griesba.kata.bankaccount.repo.ClientActionHistory;
 import com.griesba.kata.bankaccount.web.mapper.AccountMapper;
-import com.griesba.kata.bankaccount.model.ClientAction;
 import com.griesba.kata.bankaccount.web.mapper.ClientActionMapper;
 import com.griesba.kata.bankaccount.web.model.AccountDto;
 import com.griesba.kata.bankaccount.web.model.ClientActionDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 
 import java.util.List;
 import java.util.Optional;

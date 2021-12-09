@@ -5,11 +5,7 @@ import java.util.UUID;
 
 public abstract class Event {
     @Id
-    private final UUID id;
-
-    public Event(UUID id) {
-        this.id = id;
-    }
+    private UUID id;
 
     public UUID getId() {
         return id;
